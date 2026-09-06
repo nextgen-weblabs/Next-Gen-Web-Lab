@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Next Gen | Our Team</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #08050f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .team-hero {
+            min-height: 75vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(126, 52, 255, 0.30),
+                    transparent 45%
+                ),
+                #08050f;
+
+            opacity: 0;
+
+            transform: translateY(120px);
+
+            animation:
+                heroRise 1.5s
+                cubic-bezier(.2,.8,.2,1)
+                forwards;
+        }
+
+
+        /* Hero moves from bottom to its original position */
+
+        @keyframes heroRise {
+
+            0% {
+                opacity: 0;
+                transform: translateY(120px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            padding: 30px;
+        }
+
+
+        /* =========================
+           HERO SMALL TEXT
+        ========================= */
+
+        .hero-small {
+            color: #b987ff;
+
+            letter-spacing: 6px;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease
+                0.3s forwards;
+        }
+
+
+        /* =========================
+           MAIN TITLE
+        ========================= */
+
+        .team-hero h1 {
+
+            font-size:
+                clamp(55px, 9vw, 125px);
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -5px;
+
+            white-space: nowrap;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1.1s ease
+                0.55s forwards;
+        }
+
+
+        /* IMPORTANT:
+           Meet Our + Team SAME LINE */
+
+        .team-hero h1 span {
+
+            display: inline;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #a855f7,
+                    #ffffff
+                );
+
+            background-size: 200% auto;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                gradientMove 5s
+                linear infinite;
+        }
+
+
+        @keyframes gradientMove {
+
+            to {
+                background-position: 200% center;
+            }
+
+        }
+
+
+        /* =========================
+           HERO DESCRIPTION
+        ========================= */
+
+        .hero-description {
+
+            max-width: 650px;
+
+            margin:
+                35px auto 0;
+
+            color: #aaa1b8;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease
+                1s forwards;
+        }
+
+
+        @keyframes fadeUp {
+
+            0% {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+
+        /* =========================
+           MEMBERS
+        ========================= */
+
+        .members-container {
+            width: 100%;
+        }
+
+
+        .member-section {
+
+            min-height: 100vh;
+
+            padding:
+                100px 8%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .member-section:nth-child(even) {
+
+            background:
+                radial-gradient(
+                    circle at 20% 50%,
+                    rgba(126, 52, 255, 0.14),
+                    transparent 40%
+                );
+
+        }
+
+
+        .member-section:nth-child(odd) {
+
+            background:
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(168, 85, 247, 0.12),
+                    transparent 40%
+                );
+
+        }
+
+
+
+        /* =========================
+           WHOLE MEMBER BOX
+        ========================= */
+
+        .member-box {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            min-height: 620px;
+
+            padding: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 80px;
+
+            position: relative;
+
+            border-radius: 35px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.055),
+                    rgba(255,255,255,0.015)
+                );
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,0.45),
+
+                inset 0 1px 0
+                rgba(255,255,255,0.06);
+
+
+            /* Hidden initially */
+
+            opacity: 0;
+
+            transform:
+                translateY(160px)
+                scale(0.94);
+
+
+            transition:
+
+                opacity 1s ease,
+
+                transform
+                1.1s
+                cubic-bezier(.2,.8,.2,1);
+        }
+
+
+        /* =========================
+           SHOW MEMBER
+        ========================= */
+
+        .member-box.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+
+
+        /* =========================
+           MEMBER NUMBER
+        ========================= */
+
+        .member-number {
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 40px;
+
+            font-size: 100px;
+
+            font-weight: 900;
+
+            color:
+                rgba(255,255,255,0.025);
+
+            pointer-events: none;
+        }
+
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .member-image-wrapper {
+
+            width: 45%;
+
+            min-width: 350px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .member-image {
+
+            width: 360px;
+
+            height: 460px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 30px 80px
+                rgba(100,30,255,0.25);
+
+            transition:
+                transform 0.6s ease,
+                box-shadow 0.6s ease;
+        }
+
+
+        .member-box:hover .member-image {
+
+            transform:
+                scale(1.04)
+                rotateY(-4deg);
+
+            box-shadow:
+                0 40px 100px
+                rgba(130,50,255,0.40);
+        }
+
+
+
+        /* =========================
+           PLACEHOLDER
+        ========================= */
+
+        .member-placeholder {
+
+            width: 360px;
+
+            height: 460px;
+
+            border-radius: 30px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171025,
+                    #0e0918
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.4);
+        }
+
+
+        .member-placeholder i {
+
+            font-size: 100px;
+
+            color: #8b5cf6;
+
+            opacity: 0.7;
+        }
+
+
+
+        /* =========================
+           MEMBER INFO
+        ========================= */
+
+        .member-info {
+
+            flex: 1;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .member-role {
+
+            color: #a855f7;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+
+        .member-info h2 {
+
+            font-size:
+                clamp(40px, 5vw, 72px);
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+
+            letter-spacing: -2px;
+        }
+
+
+        .member-info h2 span {
+
+            color: #a855f7;
+        }
+
+
+        .member-description {
+
+            max-width: 560px;
+
+            color: #a8a1b1;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .member-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .member-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding:
+                14px 25px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: 600;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            background:
+                rgba(255,255,255,0.06);
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .member-btn:hover {
+
+            background: #8b5cf6;
+
+            border-color: #8b5cf6;
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(139,92,246,0.35);
+        }
+
+
+        .member-btn.primary {
+
+            background: #8b5cf6;
+
+            border-color: #8b5cf6;
+        }
+
+
+        .member-btn.primary:hover {
+
+            background: #7c3aed;
+        }
+
+
+
+        /* =========================
+           ALTERNATING BOX
+        ========================= */
+
+        .member-section:nth-child(2)
+        .member-box,
+
+        .member-section:nth-child(4)
+        .member-box {
+
+            flex-direction:
+                row-reverse;
+        }
+
+
+
+        /* =========================
+           BACK HOME
+        ========================= */
+
+        .back-home {
+
+            min-height: 30vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #08050f;
+        }
+
+
+        .back-btn {
+
+            padding:
+                16px 30px;
+
+            border-radius: 50px;
+
+            color: white;
+
+            text-decoration: none;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            background:
+                rgba(255,255,255,0.05);
+
+            transition: 0.3s;
+        }
+
+
+        .back-btn:hover {
+
+            background: #8b5cf6;
+
+            border-color: #8b5cf6;
+
+            transform:
+                translateY(-4px);
+        }
+
+
+
+        /* =========================
+           TABLET / MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .team-hero {
+
+                min-height: 65vh;
+
+                padding:
+                    40px 20px;
+            }
+
+
+            .team-hero h1 {
+
+                font-size:
+                    clamp(42px, 9vw, 75px);
+
+                letter-spacing:
+                    -3px;
+            }
+
+
+            .member-section {
+
+                padding:
+                    70px 20px;
+            }
+
+
+            .member-box,
+
+            .member-section:nth-child(2)
+            .member-box,
+
+            .member-section:nth-child(4)
+            .member-box {
+
+                flex-direction: column;
+
+                gap: 45px;
+
+                padding:
+                    35px 25px;
+
+                min-height: auto;
+            }
+
+
+            .member-image-wrapper {
+
+                width: 100%;
+
+                min-width: auto;
+            }
+
+
+            .member-image,
+
+            .member-placeholder {
+
+                width:
+                    min(100%, 330px);
+
+                height: 400px;
+            }
+
+
+            .member-info {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+
+            .member-buttons {
+
+                justify-content: center;
+            }
+
+
+            .member-number {
+
+                right: 20px;
+
+                font-size: 70px;
+            }
+        }
+
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            .team-hero {
+
+                min-height: 60vh;
+            }
+
+
+            .team-hero h1 {
+
+                /*
+                   Mobile screen ছোট হলে
+                   title সুন্দরভাবে wrap করবে
+                */
+
+                white-space: normal;
+
+                font-size: 52px;
+            }
+
+
+            .hero-description {
+
+                font-size: 15px;
+            }
+
+
+            .member-box {
+
+                border-radius: 25px;
+            }
+
+
+            .member-image,
+
+            .member-placeholder {
+
+                height: 350px;
+            }
+
+
+            .member-info h2 {
+
+                font-size: 42px;
+            }
+
+
+            .member-description {
+
+                font-size: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="team-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                NEXT GEN
+            </div>
+
+
+            <h1>
+                Meet Our
+                <span>Team</span>
+            </h1>
+
+
+            <p class="hero-description">
+
+                Meet the passionate people behind Next Gen.
+                We combine creativity, technology and innovation
+                to build powerful digital experiences.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEAM MEMBERS
+    ========================= -->
+
+    <main class="members-container">
+
+
+        <!-- =========================
+             01 — CEO
+        ========================= -->
+
+        <section class="member-section">
+
+            <div class="member-box">
+
+                <div class="member-number">
+                    01
+                </div>
+
+
+                <div class="member-image-wrapper">
+
+                    <img
+    src="tawsif.png"
+    alt="Akhlakur Rahman"
+    class="member-image"
+>
+                </div>
+
+
+                <div class="member-info">
+
+                    <div class="member-role">
+                        CEO
+                    </div>
+
+
+                    <h2>
+                        Akhlakur
+                        <span>Rahman</span>
+                    </h2>
+
+
+                    <p class="member-description">
+
+                        Leading Next Gen with a vision to create
+                        innovative digital solutions and build a
+                        future-focused technology company.
+
+                    </p>
+
+
+                    <div class="member-buttons">
+
+                        <a
+                            href="mailto:"
+                            class="member-btn primary"
+                        >
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            Let's Connect
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             02 — DIPTHO
+        ========================= -->
+
+        <section class="member-section">
+
+            <div class="member-box">
+
+                <div class="member-number">
+                    02
+                </div>
+
+
+                <div class="member-image-wrapper">
+
+                    <img
+                        src="developer.jpeg"
+                        alt="Diptho Durjoy"
+                        class="member-image"
+                    >
+
+                </div>
+
+
+                <div class="member-info">
+
+                    <div class="member-role">
+                        Developer
+                    </div>
+
+
+                    <h2>
+                        Diptho
+                        <span>Durjoy</span>
+                    </h2>
+
+
+                    <p class="member-description">
+
+                        Web developer focused on building responsive,
+                        modern and user-friendly digital experiences
+                        using modern web technologies.
+
+                    </p>
+
+
+                    <div class="member-buttons">
+
+
+                        <a
+                            href="https://imdipthodurjoy.github.io/Diptho-Portfolio"
+                            target="_blank"
+                            class="member-btn primary"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Portfolio
+
+                        </a>
+
+
+                        <a
+                            href="https://github.com/imdipthodurjoy"
+                            target="_blank"
+                            class="member-btn"
+                        >
+
+                            <i class="fa-brands fa-github"></i>
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             03 — RAJ
+        ========================= -->
+
+        <section class="member-section">
+
+            <div class="member-box">
+
+                <div class="member-number">
+                    03
+                </div>
+
+
+                <div class="member-image-wrapper">
+
+                    <img
+                        src="Raj final.jpeg"
+                        alt="Raj Deb"
+                        class="member-image"
+                    >
+
+                </div>
+
+
+                <div class="member-info">
+
+                    <div class="member-role">
+                        Developer
+                    </div>
+
+
+                    <h2>
+                        Raj
+                        <span>Deb</span>
+                    </h2>
+
+
+                    <p class="member-description">
+
+                        Developer working on innovative web solutions
+                        and helping transform ideas into functional
+                        digital products.
+
+                    </p>
+
+
+                    <div class="member-buttons">
+
+
+                        <a
+                            href="#"
+                            class="member-btn primary"
+                        >
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Portfolio
+
+                        </a>
+
+
+                        <a
+                            href="#"
+                            class="member-btn"
+                        >
+
+                            <i class="fa-brands fa-github"></i>
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             04 — AI AUTOMATION
+        ========================= -->
+
+        <section class="member-section">
+
+            <div class="member-box">
+
+                <div class="member-number">
+                    04
+                </div>
+
+
+                <div class="member-image-wrapper">
+
+                    <div class="member-placeholder">
+
+                        <i class="fa-solid fa-robot"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="member-info">
+
+                    <div class="member-role">
+                        AI Automation Consultant
+                    </div>
+
+
+                    <h2>
+                        Coming
+                        <span>Soon</span>
+                    </h2>
+
+
+                    <p class="member-description">
+
+                        Our AI Automation Consultant position is
+                        currently open. A future team member will
+                        help us build intelligent and automated
+                        solutions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             05 — SALES & MARKETING
+        ========================= -->
+
+        <section class="member-section">
+
+            <div class="member-box">
+
+                <div class="member-number">
+                    05
+                </div>
+
+
+                <div class="member-image-wrapper">
+
+                    <div class="member-placeholder">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="member-info">
+
+                    <div class="member-role">
+                        Sales & Marketing Executive
+                    </div>
+
+
+                    <h2>
+                        Coming
+                        <span>Soon</span>
+                    </h2>
+
+
+                    <p class="member-description">
+
+                        A future team member will help Next Gen
+                        grow its reach, connect with clients and
+                        build strong business relationships.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         BACK TO HOME
+    ========================= -->
+
+    <section class="back-home">
+
+        <a
+            href="index.html"
+            class="back-btn"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Home
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* সব member box select */
+
+                const memberBoxes =
+                    document.querySelectorAll(
+                        ".member-box"
+                    );
+
+
+                /* Scroll observer */
+
+                const observer =
+                    new IntersectionObserver(
+
+                        function (entries) {
+
+                            entries.forEach(
+                                function (entry) {
+
+
+                                    if (
+                                        entry.isIntersecting
+                                    ) {
+
+
+                                        /* পুরো box উঠবে */
+
+                                        entry.target
+                                            .classList
+                                            .add("show");
+
+
+                                        /* একবার animation হওয়ার
+                                           পর আর observe করবে না */
+
+                                        observer
+                                            .unobserve(
+                                                entry.target
+                                            );
+
+                                    }
+
+                                }
+                            );
+
+                        },
+
+
+                        {
+                            threshold: 0.18
+                        }
+
+                    );
+
+
+                /* প্রতিটি box observe */
+
+                memberBoxes.forEach(
+                    function (box) {
+
+                        observer.observe(box);
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+</html>

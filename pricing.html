@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pricing | Next Gen</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #080512;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Background Glow */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #6d28d9;
+            filter: blur(180px);
+            opacity: 0.18;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            padding: 10px 18px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #7c3aed;
+            border-color: #7c3aed;
+        }
+
+        /* Hero */
+        .pricing-header {
+            text-align: center;
+            padding: 80px 20px 50px;
+        }
+
+        .pricing-header .small-title {
+            color: #a78bfa;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .pricing-header h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .pricing-header h1 span {
+            color: #8b5cf6;
+        }
+
+        .pricing-header p {
+            max-width: 650px;
+            margin: auto;
+            color: #a1a1aa;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Pricing */
+        .pricing-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding-bottom: 70px;
+        }
+
+        .pricing-card {
+            position: relative;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 35px 30px;
+            backdrop-filter: blur(15px);
+            transition: 0.35s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 60px rgba(124,58,237,0.18);
+        }
+
+        .pricing-card.popular {
+            border: 1px solid #8b5cf6;
+            box-shadow: 0 0 40px rgba(124,58,237,0.12);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #7c3aed;
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 35px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .price span {
+            font-size: 14px;
+            color: #a1a1aa;
+            font-weight: 400;
+        }
+
+        .description {
+            color: #a1a1aa;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 55px;
+            margin-bottom: 25px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            color: #d4d4d8;
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #a78bfa;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            background: #7c3aed;
+            padding: 13px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .plan-btn:hover {
+            background: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .normal-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .normal-btn:hover {
+            background: #7c3aed;
+            border-color: #7c3aed;
+        }
+
+        /* Note */
+        .pricing-note {
+            text-align: center;
+            color: #71717a;
+            font-size: 13px;
+            padding: 0 20px 60px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            padding: 25px;
+            color: #71717a;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .pricing-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .pricing-header {
+                padding-top: 60px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            nav {
+                padding: 20px;
+            }
+
+            .pricing-card {
+                padding: 30px 25px;
+            }
+
+            .price {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Next<span>Gen</span>Labs</div>
+
+        <a href="index.html" class="back-btn">
+            ← Back to Home
+        </a>
+    </nav>
+
+
+    <!-- Pricing Header -->
+    <section class="pricing-header">
+
+        <div class="small-title">
+            Our Pricing
+        </div>
+
+        <h1>
+            Choose Your <span>Perfect Plan</span>
+        </h1>
+
+        <p>
+            Flexible solutions designed to match your project requirements,
+            business goals, and budget.
+        </p>
+
+    </section>
+
+
+    <!-- Pricing Cards -->
+    <section class="pricing-container">
+
+        <!-- Normal -->
+        <div class="pricing-card">
+
+            <div class="plan-name">
+                Normal
+            </div>
+
+            <div class="price">
+                $400 – $800
+            </div>
+
+            <p class="description">
+                Perfect for small businesses and professional websites.
+            </p>
+
+            <ul class="features">
+                <li>5–7 Pages</li>
+                <li>Modern Responsive Design</li>
+                <li>Home, About & Services</li>
+                <li>Projects Section</li>
+                <li>Contact Form</li>
+                <li>Basic Animations</li>
+                <li>Social Media Integration</li>
+                <li>Basic SEO Setup</li>
+                <li>Mobile Optimization</li>
+            </ul>
+
+            <a href="https://wa.me/8801602197279" class="plan-btn normal-btn">
+                Get Started →
+            </a>
+
+        </div>
+
+
+        <!-- Standard -->
+        <div class="pricing-card popular">
+
+            <div class="popular-badge">
+                MOST POPULAR
+            </div>
+
+            <div class="plan-name">
+                Standard
+            </div>
+
+            <div class="price">
+                $800 – $1,200
+            </div>
+
+            <p class="description">
+                Ideal for growing businesses that need more powerful features.
+            </p>
+
+            <ul class="features">
+                <li>Everything in Normal</li>
+                <li>8–12 Pages</li>
+                <li>Custom UI/UX Design</li>
+                <li>Advanced Animations</li>
+                <li>Blog / News Section</li>
+                <li>Admin Dashboard</li>
+                <li>Database Integration</li>
+                <li>User Authentication</li>
+                <li>Advanced SEO</li>
+                <li>Speed Optimization</li>
+            </ul>
+
+            <a href="https://wa.me/8801602197279" class="plan-btn">
+                Get Started →
+            </a>
+
+        </div>
+
+
+        <!-- Premium -->
+        <div class="pricing-card">
+
+            <div class="plan-name">
+                Premium
+            </div>
+
+            <div class="price">
+                $1,200 – $2,500+
+            </div>
+
+            <p class="description">
+                Complete custom solutions for advanced business requirements.
+            </p>
+
+            <ul class="features">
+                <li>Everything in Standard</li>
+                <li>Custom Web Application</li>
+                <li>Advanced Admin Panel</li>
+                <li>Multiple User Roles</li>
+                <li>Client Dashboard</li>
+                <li>E-commerce / Online Ordering</li>
+                <li>Payment Gateway Integration</li>
+                <li>API Integration</li>
+                <li>Advanced Security</li>
+                <li>Reports & Analytics</li>
+            </ul>
+
+            <a href="https://wa.me/8801602197279" class="plan-btn">
+                Get Started →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Pricing Note -->
+    <div class="pricing-note">
+        * Final pricing may vary depending on project requirements,
+        features, integrations, and overall complexity.
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Next Gen Labs. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
